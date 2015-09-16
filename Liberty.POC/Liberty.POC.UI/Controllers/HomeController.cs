@@ -10,6 +10,12 @@ namespace Liberty.POC.UI.Controllers
     {
         public ActionResult Index()
         {
+
+            using (var data = new LibertyPocEntities())
+            {
+                data.Sessions.Add(new Session {});
+            }
+
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
