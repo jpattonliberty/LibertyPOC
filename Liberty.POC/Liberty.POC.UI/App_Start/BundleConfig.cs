@@ -48,6 +48,23 @@ namespace Liberty.POC.UI
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            //Liberty POC bundle
+            //bundles.Add(new ScriptBundle("~/bundles/app").Include(
+            //    "~/Scripts/jquery.signalR-2.2.0.js",
+            //    "~/Scripts/hubs.js",
+            //    "~/Scripts/client-app.js",
+            //    "~/Scripts/callcenter-app.js"
+            //    ));
+
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                "~/Scripts/jquery.signalR-2.2.0.js",
+                "~/Scripts/hubs.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/callcenter").Include("~/Scripts/callcenter-app.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/client").Include( "~/Scripts/client-app.js"));
         }
     }
 }

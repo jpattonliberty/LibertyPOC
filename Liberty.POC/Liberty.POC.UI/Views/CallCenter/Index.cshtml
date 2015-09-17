@@ -21,7 +21,7 @@
 <h3>We suggest the following:</h3>
 <ol class="round">
     <li class="one">
-          <input type="button" value="Pong" id="btnPong"/>
+        <input type="button" value="Pong" id="btnPong" />
         <div id="divResponse">waiting...</div>
         <h5>Getting Started</h5>
         ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
@@ -45,3 +45,7 @@
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+@section scripts
+{
+    @Scripts.Render("~/bundles/callcenter")
+}
