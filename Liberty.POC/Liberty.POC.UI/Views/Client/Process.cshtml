@@ -1,0 +1,8 @@
+﻿@using lib = Liberty.POC 
+@model lib.UI.Session 
+@{
+    ViewBag.Title = "Process";
+    Layout = "~/Views/Shared/_LayoutLiberty.cshtml";
+}
+
+<input type="hidden" value="@Model.ClientName" id="clientName" />
