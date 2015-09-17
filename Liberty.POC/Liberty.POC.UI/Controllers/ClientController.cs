@@ -28,5 +28,32 @@ namespace Liberty.POC.UI.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string clientName, string password)
+        {
+            return RedirectToAction("Process", new { clientName = clientName });
+        }
+
+        [HttpGet]
+        public ActionResult Process(string clientName)
+        {
+            if (string.IsNullOrWhiteSpace(clientName))
+                throw new ArgumentNullException("clientName");
+
+            var session = new Session
+            {
+                ClientName = clientName,
+                Completed = false
+            };
+
+            return View(session);
+        }
     }
 }
