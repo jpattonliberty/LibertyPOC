@@ -22,7 +22,7 @@
 <ol class="round">
     <li class="one">
         <input type="button" value="Ping" id="btnPing"/>
-        <div id="divResponse">waiting...</div>
+        <div id="divResponse"></div>
         <h5>Getting Started</h5>
         ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
         enables a clean separation of concerns and that gives you full control over markup
@@ -45,3 +45,7 @@
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+@section scripts
+{
+    @Scripts.Render("~/bundles/client")
+}

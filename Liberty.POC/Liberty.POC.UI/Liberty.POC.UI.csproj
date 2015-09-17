@@ -292,6 +292,9 @@
     </Content>
     <None Include="Properties\PublishProfiles\jpatton.local.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\client-app.js" />
+    <Content Include="Scripts\callcenter-app.js" />
+    <Content Include="Scripts\hubs.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
