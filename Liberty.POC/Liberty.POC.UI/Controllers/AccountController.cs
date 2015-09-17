@@ -11,7 +11,7 @@ using WebMatrix.WebData;
 using Liberty.POC.UI.Filters;
 using Liberty.POC.UI.Models;
 
-namespace Liberty.POC.UI.Controllers
+namespace MvcApplication1.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
