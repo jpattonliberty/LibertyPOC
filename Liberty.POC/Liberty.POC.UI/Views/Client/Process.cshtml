@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "Process";
     Layout = "~/Views/Shared/_LayoutLiberty.cshtml";
+
 }
+<input type="hidden" value="@Model.Id" id="txtSessionId" />
 <input type="hidden" value="@Model.Name" id="txtName" />
 <div id="page-wrapper">
     <div class="row">

@@ -51,10 +51,13 @@ namespace Liberty.POC.UI.Controllers
             if (string.IsNullOrWhiteSpace(clientName))
                 throw new ArgumentNullException("clientName");
 
+            var dataModel = SaveSessionData(clientName, "Personal");
+
             var session = new ClientDetailsModel
             {
-                Name = clientName,
-                IsCompleted = false,
+                Id = dataModel.SessionID,
+                Name = dataModel.ClientName,
+                IsCompleted = dataModel.Completed
             };
 
             return View(session);
@@ -63,21 +66,45 @@ namespace Liberty.POC.UI.Controllers
         [HttpPost]
         public JsonResult Save(ClientDetailsModel clientDetailsModel)
         {
+            UpdateSessionData(clientDetailsModel);
+
+            return Json(new { status = "Success", message = "Success" });
+        }
+
+        private static void UpdateSessionData(ClientDetailsModel clientDetailsModel)
+        {
+            using (var ctx = new LibertyPocEntities())
+            {
+                var session = ctx.Sessions.FirstOrDefault(s => s.SessionID == clientDetailsModel.Id);
+
+                if (session != null)
+                {
+                    session.Address = System.Web.Helpers.Json.Encode(clientDetailsModel.AddressDetails);
+                    session.Contact = System.Web.Helpers.Json.Encode(clientDetailsModel.ContactDetail);
+                    session.Personal = System.Web.Helpers.Json.Encode(clientDetailsModel.PersonalDetails);
+                    session.Completed = clientDetailsModel.IsCompleted;
+                }
+
+                ctx.SaveChanges();
+            }
+        }
+
+        private static Session SaveSessionData(string clientName, string currentStep)
+        {
             var dataModel = new Session
             {
-                Address = System.Web.Helpers.Json.Encode(clientDetailsModel.AddressDetails),
-                Contact = System.Web.Helpers.Json.Encode(clientDetailsModel.ContactDetail),
-                Personal = System.Web.Helpers.Json.Encode(clientDetailsModel.PersonalDetails),
-                ClientName = clientDetailsModel.Name,
-                Completed = clientDetailsModel.IsCompleted
+                ClientName = clientName,
+                CurrentStep = currentStep,
+                Completed = false
             };
 
-            using (var context = new LibertyPocEntities())
+            using (var ctx = new LibertyPocEntities())
             {
-                context.Sessions.Add(dataModel);
+                ctx.Sessions.Add(dataModel);
+                ctx.SaveChanges();
             }
-            
-            return Json(new { status = "Success", message = "Success" });
+
+            return dataModel;
         }
     }
 }

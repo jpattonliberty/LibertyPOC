@@ -120,13 +120,14 @@
         }
 
         function GetClientDetails(isComplete) {
+            var sessionId = $('#txtSessionId').val();
             var name = $('#txtName').val();
             var personal = GetPersonal();
             var address = GetAddress();
             var contact = GetContact();
 
             var session = {
-                "Id": 0,
+                "Id": sessionId,
                 "Name": name,
                 "CurrentStep": "",
                 "AddressDetails": address,
