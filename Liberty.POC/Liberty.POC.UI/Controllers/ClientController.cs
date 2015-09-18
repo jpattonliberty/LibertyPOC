@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Liberty.POC.UI.Models;
 
@@ -50,14 +47,14 @@ namespace Liberty.POC.UI.Controllers
 
             var dataModel = CreateDefaultSession(clientName);
 
-            var session = new ClientDetailsModel
+            var clientDetailsModel = new ClientDetailsModel
             {
                 Id = dataModel.SessionID,
                 Name = dataModel.ClientName,
                 IsCompleted = dataModel.Completed
             };
 
-            return View(session);
+            return View(clientDetailsModel);
         }
 
         private static Session CreateDefaultSession(string clientName)
