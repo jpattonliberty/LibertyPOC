@@ -28,5 +28,10 @@ namespace Liberty.POC.UI.Controllers
 
             return View();
         }
+
+        public ActionResult Process()
+        {
+            return View();
+        }
     }
 }

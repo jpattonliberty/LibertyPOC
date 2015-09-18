@@ -588,6 +588,8 @@
     <Content Include="Views\Client\Login.cshtml" />
     <Content Include="Views\Client\Process.cshtml" />
     <Content Include="Views\Shared\_LayoutLiberty.cshtml" />
+    <Content Include="Views\Shared\_LayoutLibertyCC.cshtml" />
+    <Content Include="Views\CallCenter\Process.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
