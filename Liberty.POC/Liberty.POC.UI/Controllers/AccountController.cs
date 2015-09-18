@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
-using Microsoft.Web.WebPages.OAuth;
-using WebMatrix.WebData;
 using Liberty.POC.UI.Filters;
 using Liberty.POC.UI.Models;
+using Microsoft.Web.WebPages.OAuth;
+using WebMatrix.WebData;
 
 namespace MvcApplication1.Controllers
 {
