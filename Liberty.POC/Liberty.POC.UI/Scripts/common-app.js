@@ -139,3 +139,11 @@ function GetContact() {
     }
     return contact;
 }
+
+function ShowModal() {
+    $("#modal-window").modal();
+    $("#modal-window").css({
+        top: ($(window).height() - $(this).height()) / 2,
+        left: ($(window).width() - $(this).width()) / 2
+    });
+}

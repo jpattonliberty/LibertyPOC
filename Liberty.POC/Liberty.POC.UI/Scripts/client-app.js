@@ -7,9 +7,9 @@
         };
 
         $.connection.hub.start().done(function () {
-            $('#btnPing').click(function () {
+            $('#divRequestHelp').click(function () {
                 clientCallCenterHub.server.send('client', 'ping');
-                $('#divResponse').text('waiting...');
+                //$('#divResponse').text('waiting...');
             });
         });
     });

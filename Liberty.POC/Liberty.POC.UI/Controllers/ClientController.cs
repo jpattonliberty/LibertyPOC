@@ -45,6 +45,9 @@ namespace Liberty.POC.UI.Controllers
         [HttpGet]
         public ActionResult Process(string clientName)
         {
+            if (string.IsNullOrWhiteSpace(clientName))
+                return RedirectToAction("Login");
+
             var dataModel = CreateDefaultSession(clientName);
 
             var session = new ClientDetailsModel
@@ -60,9 +63,6 @@ namespace Liberty.POC.UI.Controllers
         private static Session CreateDefaultSession(string clientName)
         {
             const string defaultCurrentStep = "Personal";
-
-            if (string.IsNullOrWhiteSpace(clientName))
-                throw new ArgumentNullException("clientName");
 
             var dataModel = new Session
             {
