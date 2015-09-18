@@ -212,6 +212,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\ClientDetailsModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\PersonalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -388,7 +389,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>34571</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:52738/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
