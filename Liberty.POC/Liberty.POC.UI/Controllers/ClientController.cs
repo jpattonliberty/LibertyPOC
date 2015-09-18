@@ -106,5 +106,15 @@ namespace Liberty.POC.UI.Controllers
 
             return dataModel;
         }
+
+        public string Clear()
+        {
+            using (var libertyPocEntities = new LibertyPocEntities())
+            {
+                libertyPocEntities.Sessions.RemoveRange(libertyPocEntities.Sessions);
+                libertyPocEntities.SaveChanges();
+            }
+            return "Done";
+        }
     }
 }
