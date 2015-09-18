@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Liberty.POC.UI.Models
+﻿namespace Liberty.POC.UI.Models
 {
     public class ContactModel
     {

@@ -1,0 +1,31 @@
+{
+   "Id":1,
+   "Name":"Jonnie",
+   "CurrentStep":"Personal",
+   "AddressDetails":{
+      "PhysicalAddressStreet":"14 Briolette Street",
+      "PhysicalAddressSuburb":"Jukskei Park",
+      "PhysicalAddressCity":"Johannesburg",
+      "PhysicalAddressProvince":"Gauteng",
+      "PhysicalAddressCode":"615",
+      "PostalAddressBox":"PO Box 253",
+      "PostalAddressSuburb":"Jukskei Park",
+      "PostalAddressCity":"Johannesburg",
+      "PostalAddressProvince":"Gauteng",
+      "PostalAddressCode":"253"
+   },
+   "ContactDetail":{
+      "EmailAddress":"support@liberty.co.za",
+      "Cellphone":"+27 84 7167827",
+      "Home":"+27 11 6621018",
+      "Work":"+27 406 301",
+      "Alternative":"+27 406 300"
+   },
+   "PersonalDetails":{
+      "FirstName":"Jonathan",
+      "Surname":"Patton",
+      "IdNo":8607085254081,
+      "NoOfDependants":3
+   },
+   "IsCompleted":false
+}

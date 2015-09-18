@@ -212,6 +212,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\ClientDetailsModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\PersonalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -515,6 +516,7 @@
     <Content Include="Content\jquery\bower.json" />
     <Content Include="Content\jquery\dist\jquery.min.map" />
     <Content Include="Content\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="data.json" />
     <None Include="Properties\PublishProfiles\jpatton.local.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -616,7 +618,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>34571</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:52738/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
