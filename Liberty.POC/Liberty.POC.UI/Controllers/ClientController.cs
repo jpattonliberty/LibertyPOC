@@ -32,6 +32,9 @@ namespace Liberty.POC.UI.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            //System.Web.Helpers.Json.Encode();
+            //System.Web.Helpers.Json.Decode();
+
             return View();
         }
 
