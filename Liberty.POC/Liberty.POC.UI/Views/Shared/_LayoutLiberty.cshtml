@@ -81,7 +81,7 @@
                     else {
                         alert("Error occurs on the Database level!");
                     }
-                }, false);
+            }, false, false);
         }
 
         function Finish() {
@@ -92,11 +92,22 @@
                 else {
                     alert("Error occurs on the Database level!");
                 }
-            }, true);
+            }, true, false);
         }
 
-        function SaveClientData(successCallback, isComplete) {
-            var payload = GetClientDetails(isComplete);
+        function HelpMe() {
+            SaveClientData(function (data) {
+                if (data.status === "Success") {
+                    alert('Send your stuff here ');
+                }
+                else {
+                    alert("Oops");
+                }
+            }, true, true);
+        }
+
+        function SaveClientData(successCallback, isComplete, isHelperCall) {
+            var payload = GetClientDetails(isComplete, isHelperCall);
 
             $.ajax({
                 url: "/Client/Save",
@@ -119,7 +130,7 @@
             window.setTimeout("$('#support-tag').fadeOut(350); $('#support-tag').fadeIn(350);", 5000);
         }
 
-        function GetClientDetails(isComplete) {
+        function GetClientDetails(isComplete, isHelperCall) {
             var sessionId = $('#txtSessionId').val();
             var name = $('#txtName').val();
             var personal = GetPersonal();
@@ -129,7 +140,7 @@
             var session = {
                 "Id": sessionId,
                 "Name": name,
-                "CurrentStep": "",
+                "CurrentStep": (isHelperCall ? getCurrentStep() : getCurrentSaveStep()),
                 "AddressDetails": address,
                 "ContactDetail": contact,
                 "PersonalDetails": personal,
@@ -137,6 +148,22 @@
             };
 
             return session;
+        }
+
+        function getCurrentSaveStep() {
+            if ($('#personal').hasClass('active'))
+                return 'Address';
+            else if ($('#address').hasClass('active'))
+                return 'Contact';
+            return 'Personal';
+        }
+
+        function getCurrentStep() {
+            if ($('#personal').hasClass('active'))
+                return 'Personal';
+            else if ($('#address').hasClass('active'))
+                return 'Address';
+            return 'Contact';
         }
 
         function GetPersonal() {

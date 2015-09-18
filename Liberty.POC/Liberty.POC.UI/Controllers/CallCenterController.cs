@@ -33,5 +33,10 @@ namespace Liberty.POC.UI.Controllers
         {
             return View();
         }
+
+        public ActionResult Home()
+        {
+            return View();
+        }
     }
 }
