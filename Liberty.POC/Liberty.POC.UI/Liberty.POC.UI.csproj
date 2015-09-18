@@ -221,6 +221,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CallCenterResources\Dashboard.html" />
+    <Content Include="CallCenterResources\Wizards.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\liberty.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -277,8 +279,62 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CallCenterResources\Dashboard_files\a1.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a2.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a3.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a4.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a5.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a7.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\a8.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\analytics.js" />
+    <Content Include="CallCenterResources\Dashboard_files\animate.css" />
+    <Content Include="CallCenterResources\Dashboard_files\bootstrap.min.css" />
+    <Content Include="CallCenterResources\Dashboard_files\bootstrap.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\Chart.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\font-awesome.css" />
+    <Content Include="CallCenterResources\Dashboard_files\inspinia.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery-2.1.1.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery-ui.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.flot.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.flot.pie.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.flot.resize.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.flot.spline.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.flot.tooltip.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.gritter.css" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.gritter.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.metisMenu.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.peity.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.slimscroll.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\jquery.sparkline.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\pace.min.js" />
+    <Content Include="CallCenterResources\Dashboard_files\peity-demo.js" />
+    <Content Include="CallCenterResources\Dashboard_files\profile.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\profile_small.jpg" />
+    <Content Include="CallCenterResources\Dashboard_files\sparkline-demo.js" />
+    <Content Include="CallCenterResources\Dashboard_files\style.css" />
+    <Content Include="CallCenterResources\Dashboard_files\toastr.min.css" />
+    <Content Include="CallCenterResources\Dashboard_files\toastr.min.js" />
     <Content Include="favicon.ico" />
+    <Content Include="CallCenterResources\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="CallCenterResources\Wizards_files\a4.jpg" />
+    <Content Include="CallCenterResources\Wizards_files\a7.jpg" />
+    <Content Include="CallCenterResources\Wizards_files\animate.css" />
+    <Content Include="CallCenterResources\Wizards_files\bootstrap.min.css" />
+    <Content Include="CallCenterResources\Wizards_files\bootstrap.min.js" />
+    <Content Include="CallCenterResources\Wizards_files\custom.css" />
+    <Content Include="CallCenterResources\Wizards_files\font-awesome.css" />
+    <Content Include="CallCenterResources\Wizards_files\inspinia.js" />
+    <Content Include="CallCenterResources\Wizards_files\jquery-2.1.1.js" />
+    <Content Include="CallCenterResources\Wizards_files\jquery.metisMenu.js" />
+    <Content Include="CallCenterResources\Wizards_files\jquery.slimscroll.min.js" />
+    <Content Include="CallCenterResources\Wizards_files\jquery.steps.css" />
+    <Content Include="CallCenterResources\Wizards_files\jquery.steps.min.js" />
+    <Content Include="CallCenterResources\Wizards_files\jquery.validate.min.js" />
+    <Content Include="CallCenterResources\Wizards_files\pace.min.js" />
+    <Content Include="CallCenterResources\Wizards_files\profile.jpg" />
+    <Content Include="CallCenterResources\Wizards_files\profile_small.jpg" />
+    <Content Include="CallCenterResources\Wizards_files\style.css" />
     <EntityDeploy Include="Liberty.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Liberty.Designer.cs</LastGenOutput>
@@ -296,6 +352,11 @@
       <DependentUpon>Liberty.edmx</DependentUpon>
       <LastGenOutput>Liberty.cs</LastGenOutput>
     </Content>
+    <Content Include="CallCenterResources\fonts\fontawesome-webfont.eot" />
+    <Content Include="CallCenterResources\fonts\fontawesome-webfont.ttf" />
+    <Content Include="CallCenterResources\fonts\fontawesome-webfont.woff" />
+    <Content Include="CallCenterResources\fonts\fontawesome-webfont.woff2" />
+    <Content Include="CallCenterResources\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\jpatton.local.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\client-app.js" />
