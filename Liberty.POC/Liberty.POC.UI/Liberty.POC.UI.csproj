@@ -516,6 +516,7 @@
     <Content Include="Content\jquery\bower.json" />
     <Content Include="Content\jquery\dist\jquery.min.map" />
     <Content Include="Content\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="data.json" />
     <None Include="Properties\PublishProfiles\jpatton.local.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

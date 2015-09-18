@@ -38,31 +38,31 @@
                             </div>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-edit fa-fw"></i> Capture Details</a>
+                            <a href="index.html"><i class="fa fa-edit fa-fw"></i>Capture Details</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-bullseye fa-fw"></i> Saving Goals</a>
+                            <a href="index.html"><i class="fa fa-bullseye fa-fw"></i>Saving Goals</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-beer fa-fw"></i> Holiday Check</a>
+                            <a href="index.html"><i class="fa fa-beer fa-fw"></i>Holiday Check</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-certificate fa-fw"></i> Cashback</a>
+                            <a href="index.html"><i class="fa fa-certificate fa-fw"></i>Cashback</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-fire fa-fw"></i> Emergency</a>
+                            <a href="index.html"><i class="fa fa-fire fa-fw"></i>Emergency</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-gamepad fa-fw"></i> Own your life</a>
+                            <a href="index.html"><i class="fa fa-gamepad fa-fw"></i>Own your life</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-cube fa-fw"></i> Life Plan</a>
+                            <a href="index.html"><i class="fa fa-cube fa-fw"></i>Life Plan</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-female fa-fw"></i> Family</a>
+                            <a href="index.html"><i class="fa fa-female fa-fw"></i>Family</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-flask fa-fw"></i> Risks</a>
+                            <a href="index.html"><i class="fa fa-flask fa-fw"></i>Risks</a>
                         </li>
                     </ul>
                 </div>
@@ -71,16 +71,123 @@
         @RenderBody()
     </div>
     <script>
-        function clickyMartin(id) {
-            $("#" + id).click();
-            fade();
+        function SaveAndContinue(id) {
+            SaveClientData(function(data) {
+                    if (data.status === "Success") {
+                        $("#" + id).click();
+                        fade();
+
+                    }
+                    else {
+                        alert("Error occurs on the Database level!");
+                    }
+                }, false);
         }
+
+        function Finish() {
+            SaveClientData(function (data) {
+                if (data.status === "Success") {
+                    alert('Done. Redirect to landing page here...');
+                }
+                else {
+                    alert("Error occurs on the Database level!");
+                }
+            }, true);
+        }
+
+        function SaveClientData(successCallback, isComplete) {
+            var payload = GetClientDetails(isComplete);
+
+            $.ajax({
+                url: "/Client/Save",
+                type: "POST",
+                data: JSON.stringify(payload),
+                dataType: "json",
+                traditional: true,
+                contentType: "application/json; charset=utf-8",
+                success: successCallback,
+                error:  function() {
+                    alert("An error has occured!!!");
+                }
+            });
+        }
+
         function fade() {
             $('#support-tag').fadeOut(350);
             $('#support-tag').fadeIn(350);
             window.setTimeout("$('#support-tag').fadeOut(350); $('#support-tag').fadeIn(350);", 2500);
             window.setTimeout("$('#support-tag').fadeOut(350); $('#support-tag').fadeIn(350);", 5000);
         }
+
+        function GetClientDetails(isComplete) {
+            var name = $('#txtName').val();
+            var personal = GetPersonal();
+            var address = GetAddress();
+            var contact = GetContact();
+
+            var session = {
+                "Id": 0,
+                "Name": name,
+                "CurrentStep": "",
+                "AddressDetails": address,
+                "ContactDetail": contact,
+                "PersonalDetails": personal,
+                "IsCompleted": isComplete
+            };
+
+            return session;
+        }
+
+        function GetPersonal() {
+            var firstname = $('#txtFirstName').val();
+            var surname = $('#txtSurname').val();
+            var idnumber = $('#txtIdNumber').val();
+            var nodependants = $("#ddlNoDependants option:selected").text();
+
+            var personal = {
+                "FirstName": firstname,
+                "Surname": surname,
+                "IdNo": idnumber,
+                "NoOfDependants": nodependants
+            }
+            return personal;
+        }
+
+        function GetAddress() {
+
+            var street = $('#txtStreet').val();
+            var suburb = $('#txtSuburb').val();
+            var city = $('#txtCity').val();
+            var province = $("#ddlProvince option:selected").text();
+            var code = $('#txtCode').val();
+
+            var address = {
+                "PhysicalAddressStreet": street,
+                "PhysicalAddressSuburb": suburb,
+                "PhysicalAddressCity": city,
+                "PhysicalAddressProvince": province,
+                "PhysicalAddressCode": code
+            }
+            return address;
+        }
+
+        function GetContact() {
+            var email = $('#txtEmail').val();
+            var cellNo = $('#txtCellNo').val();
+            var homeNo = $('#txtHomeNo').val();
+            var workNo = $('#txtWorkNo').val();
+            var altNo = $('#txtAltNo').val();
+
+            var contact = {
+                "EmailAddress": email,
+                "Cellphone": cellNo,
+                "Home": homeNo,
+                "Work": workNo,
+                "Alternative": altNo
+            }
+            return contact;
+        }
+
     </script>
     <script src="~/Content/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/bootstrap/dist/js/bootstrap.min.js"></script>

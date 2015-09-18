@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Liberty.POC.UI.Models;
 
 namespace Liberty.POC.UI.Controllers
 {
@@ -41,7 +42,7 @@ namespace Liberty.POC.UI.Controllers
         [HttpPost]
         public ActionResult Login(string clientName, string password)
         {
-            return RedirectToAction("Process", new { clientName = clientName });
+            return RedirectToAction("Process", new { clientName });
         }
 
         [HttpGet]
@@ -50,13 +51,33 @@ namespace Liberty.POC.UI.Controllers
             if (string.IsNullOrWhiteSpace(clientName))
                 throw new ArgumentNullException("clientName");
 
-            var session = new Session
+            var session = new ClientDetailsModel
             {
-                ClientName = clientName,
-                Completed = false
+                Name = clientName,
+                IsCompleted = false,
             };
 
             return View(session);
+        }
+
+        [HttpPost]
+        public JsonResult Save(ClientDetailsModel clientDetailsModel)
+        {
+            var dataModel = new Session
+            {
+                Address = System.Web.Helpers.Json.Encode(clientDetailsModel.AddressDetails),
+                Contact = System.Web.Helpers.Json.Encode(clientDetailsModel.ContactDetail),
+                Personal = System.Web.Helpers.Json.Encode(clientDetailsModel.PersonalDetails),
+                ClientName = clientDetailsModel.Name,
+                Completed = clientDetailsModel.IsCompleted
+            };
+
+            using (var context = new LibertyPocEntities())
+            {
+                context.Sessions.Add(dataModel);
+            }
+            
+            return Json(new { status = "Success", message = "Success" });
         }
     }
 }

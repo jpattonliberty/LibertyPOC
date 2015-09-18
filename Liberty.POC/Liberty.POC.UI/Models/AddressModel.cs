@@ -12,11 +12,5 @@ namespace Liberty.POC.UI.Models
         public string PhysicalAddressCity { get; set; }
         public string PhysicalAddressProvince { get; set; }
         public string PhysicalAddressCode { get; set; }
-
-        public string PostalAddressBox { get; set; }
-        public string PostalAddressSuburb { get; set; }
-        public string PostalAddressCity { get; set; }
-        public string PostalAddressProvince { get; set; }
-        public string PostalAddressCode { get; set; }
     }
 }
