@@ -523,6 +523,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\client-app.js" />
     <Content Include="Scripts\callcenter-app.js" />
+    <Content Include="Scripts\common-app.js" />
     <Content Include="Scripts\hubs.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

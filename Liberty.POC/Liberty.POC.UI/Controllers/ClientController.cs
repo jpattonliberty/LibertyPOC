@@ -33,9 +33,6 @@ namespace Liberty.POC.UI.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            //System.Web.Helpers.Json.Encode();
-            //System.Web.Helpers.Json.Decode();
-
             return View();
         }
 
@@ -48,10 +45,7 @@ namespace Liberty.POC.UI.Controllers
         [HttpGet]
         public ActionResult Process(string clientName)
         {
-            if (string.IsNullOrWhiteSpace(clientName))
-                throw new ArgumentNullException("clientName");
-
-            var dataModel = SaveSessionData(clientName, "Personal");
+            var dataModel = CreateDefaultSession(clientName);
 
             var session = new ClientDetailsModel
             {
@@ -61,6 +55,24 @@ namespace Liberty.POC.UI.Controllers
             };
 
             return View(session);
+        }
+
+        private static Session CreateDefaultSession(string clientName)
+        {
+            const string defaultCurrentStep = "Personal";
+
+            if (string.IsNullOrWhiteSpace(clientName))
+                throw new ArgumentNullException("clientName");
+
+            var dataModel = new Session
+            {
+                ClientName = clientName,
+                CurrentStep = defaultCurrentStep,
+                Completed = false
+            };
+
+            SaveSessionData(dataModel);
+            return dataModel;
         }
 
         [HttpPost]
@@ -79,6 +91,7 @@ namespace Liberty.POC.UI.Controllers
 
                 if (session != null)
                 {
+                    session.CurrentStep = clientDetailsModel.CurrentStep;
                     session.Address = System.Web.Helpers.Json.Encode(clientDetailsModel.AddressDetails);
                     session.Contact = System.Web.Helpers.Json.Encode(clientDetailsModel.ContactDetail);
                     session.Personal = System.Web.Helpers.Json.Encode(clientDetailsModel.PersonalDetails);
@@ -89,22 +102,13 @@ namespace Liberty.POC.UI.Controllers
             }
         }
 
-        private static Session SaveSessionData(string clientName, string currentStep)
+        private static void SaveSessionData(Session dataModel)
         {
-            var dataModel = new Session
-            {
-                ClientName = clientName,
-                CurrentStep = currentStep,
-                Completed = false
-            };
-
             using (var ctx = new LibertyPocEntities())
             {
                 ctx.Sessions.Add(dataModel);
                 ctx.SaveChanges();
             }
-
-            return dataModel;
         }
     }
 }

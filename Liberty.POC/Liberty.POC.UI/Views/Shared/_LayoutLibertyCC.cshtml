@@ -85,24 +85,12 @@
         </nav>
         @RenderBody()
     </div>
-    <script>
-        function clickyMartin() {
-            $("#modal-test").modal();
-            $("#modal-test").css({
-                top: ($(window).height() - $(this).height()) / 2,
-                left: ($(window).width() - $(this).width()) / 2,
-            });
-        }
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/signalr")
+    @Scripts.Render("~/bundles/common")
+    @RenderSection("scripts", required: false)
 
-        function fade() {
-            $('#support-tag').fadeOut(350);
-            $('#support-tag').fadeIn(350);
-            window.setTimeout("$('#support-tag').fadeOut(350); $('#support-tag').fadeIn(350);", 2500);
-            window.setTimeout("$('#support-tag').fadeOut(350); $('#support-tag').fadeIn(350);", 5000);
-        }
-    </script>
-    <script src="~/Content/jquery/dist/jquery.min.js"></script>
-    <script src="~/Content/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

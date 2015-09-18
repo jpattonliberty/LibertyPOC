@@ -8,8 +8,11 @@ namespace Liberty.POC.UI
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                "~/Content/bootstrap/dist/js/bootstrap.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Content/jquery/dist/jquery.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -49,14 +52,6 @@ namespace Liberty.POC.UI
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
-            //Liberty POC bundle
-            //bundles.Add(new ScriptBundle("~/bundles/app").Include(
-            //    "~/Scripts/jquery.signalR-2.2.0.js",
-            //    "~/Scripts/hubs.js",
-            //    "~/Scripts/client-app.js",
-            //    "~/Scripts/callcenter-app.js"
-            //    ));
-
             bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
                 "~/Scripts/jquery.signalR-2.2.0.js",
                 "~/Scripts/hubs.js"
@@ -65,6 +60,8 @@ namespace Liberty.POC.UI
             bundles.Add(new ScriptBundle("~/bundles/callcenter").Include("~/Scripts/callcenter-app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/client").Include( "~/Scripts/client-app.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/common").Include("~/Scripts/common-app.js"));
         }
     }
 }

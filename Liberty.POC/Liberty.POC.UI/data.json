@@ -1,3 +1,4 @@
+//Sample JSON
 {
    "Id":1,
    "Name":"Jonnie",
@@ -7,12 +8,7 @@
       "PhysicalAddressSuburb":"Jukskei Park",
       "PhysicalAddressCity":"Johannesburg",
       "PhysicalAddressProvince":"Gauteng",
-      "PhysicalAddressCode":"615",
-      "PostalAddressBox":"PO Box 253",
-      "PostalAddressSuburb":"Jukskei Park",
-      "PostalAddressCity":"Johannesburg",
-      "PostalAddressProvince":"Gauteng",
-      "PostalAddressCode":"253"
+      "PhysicalAddressCode":"615"
    },
    "ContactDetail":{
       "EmailAddress":"support@liberty.co.za",
