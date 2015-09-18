@@ -14,7 +14,14 @@
         //    });
         //}
 
-        ShowModal();
+        ShowModal(function () {
+            //Connect was clicked
+            //SignalR goes here
+        },
+        function () {
+            //Cancel was clicked
+            //SignalR goes here
+        });
     };
 
     $.connection.hub.start();
