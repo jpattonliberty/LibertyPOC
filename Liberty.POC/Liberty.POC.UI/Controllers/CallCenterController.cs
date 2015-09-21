@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Liberty.POC.UI.Models;
 
@@ -39,9 +40,9 @@ namespace Liberty.POC.UI.Controllers
                 Name = dataModel.ClientName,
                 IsCompleted = dataModel.Completed,
                 CurrentStep = dataModel.CurrentStep,
-                AddressDetails = System.Web.Helpers.Json.Decode<AddressModel>(dataModel.Address),
-                PersonalDetails = System.Web.Helpers.Json.Decode<PersonalModel>(dataModel.Personal),
-                ContactDetail = System.Web.Helpers.Json.Decode<ContactModel>(dataModel.Contact)
+                AddressDetails = GetDeserialisedObject<AddressModel>(dataModel.Address),
+                PersonalDetails = GetDeserialisedObject<PersonalModel>(dataModel.Personal),
+                ContactDetail = GetDeserialisedObject<ContactModel>(dataModel.Contact)
             };
 
             return View(clientDetailsModel);
@@ -84,6 +85,14 @@ namespace Liberty.POC.UI.Controllers
             {
                 return ctx.Sessions.FirstOrDefault(s => s.SessionID == sessionId);
             }
+        }
+
+        private static T GetDeserialisedObject<T>(string serialisedData) where T : new()
+        {
+
+            return !string.IsNullOrEmpty(serialisedData)
+                ? System.Web.Helpers.Json.Decode<T>(serialisedData)
+                : new T();
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿
-@using Liberty.POC.UI.Helpers
+﻿@using Liberty.POC.UI.Helpers
 @using ViewModels = Liberty.POC.UI.Models
 
 @model ViewModels.ClientDetailsModel
 @{
     ViewBag.Title = "Process";
-    Layout = "~/Views/Shared/_LayoutLiberty.cshtml";
+    Layout = "~/Views/Shared/_LayoutLibertyCC.cshtml";
 }
 <input type="hidden" value="@Model.Id" id="txtSessionId" />
 <input type="hidden" value="@Model.Name" id="txtName"/>
@@ -54,9 +53,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>No of Dependants</label>
-                                                @Html.DropDownListFor(m=>m.PersonalDetails.NoOfDependants, 
-                                                                         UserInterfacehHelper.GetNumberOfDependants(), 
-                                                                        new {@class= "form-control", id="ddlNoDependants"})
+                                                @Html.DropDownListFor(m => m.PersonalDetails.NoOfDependants,
+                                                    UserInterfacehHelper.GetNumberOfDependants(),
+                                                    new {@class = "form-control", id = "ddlNoDependants"})
                                             </div>
                                             <a href="#" class="btn btn-default" onclick="SaveAndContinue('address-tab');">Save and Continue</a>
                                         </form>
@@ -84,9 +83,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Province</label>
-                                                 @Html.DropDownListFor(m=>m.AddressDetails.PhysicalAddressProvince, 
-                                                                        UserInterfacehHelper.GetProvinces(), 
-                                                                        new {@class= "form-control", id="ddlProvince", multiple=""})
+                                                @Html.DropDownListFor(m => m.AddressDetails.PhysicalAddressProvince,
+                                                    UserInterfacehHelper.GetProvinces(),
+                                                    new {@class = "form-control", id = "ddlProvince"})
 
                                             </div>
                                             <div class="form-group input-group">

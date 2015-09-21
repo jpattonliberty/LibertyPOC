@@ -10,26 +10,6 @@
     }, false, false);
 }
 
-function Finish() {
-    SaveClientData(function (data) {
-        if (data.status === "Success") {
-            alert('Done. Redirect to landing page here...');
-        } else {
-            alert("Error occurs on the Database level!");
-        }
-    }, true, false);
-}
-
-function HelpMe() {
-    SaveClientData(function (data) {
-        if (data.status === "Success") {
-            alert('Send your stuff here ');
-        } else {
-            alert("Oops");
-        }
-    }, true, true);
-}
-
 function SaveClientData(successCallback, isComplete, isHelperCall) {
     var payload = GetClientDetails(isComplete, isHelperCall);
 
