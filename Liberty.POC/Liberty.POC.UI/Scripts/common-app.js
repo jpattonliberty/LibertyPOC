@@ -119,21 +119,3 @@ function GetContact() {
     }
     return contact;
 }
-
-function ShowModal(yesCallback, noCallback) {
-    $("#modal-window").modal();
-    $("#modal-window").css({
-        top: ($(window).height() - $(this).height()) / 2,
-        left: ($(window).width() - $(this).width()) / 2
-    });
-    $('#btnConnect').click(function ()
-    {
-        $("#modal-window").modal('toggle');
-        if (yesCallback) yesCallback();
-    });
-    $('#btnCancel').click(function ()
-    {
-        $("#modal-window").modal('toggle');
-        if (noCallback) noCallback();
-    });
-}
