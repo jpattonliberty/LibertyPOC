@@ -53,57 +53,48 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" onclick="ShowModal();"><i class="fa fa-edit fa-fw"></i> Capture Details</a>
+                            <a href="#" onclick="ShowModal();"><i class="fa fa-edit fa-fw"></i>Capture Details</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-bullseye fa-fw"></i> Saving Goals</a>
+                            <a href="index.html"><i class="fa fa-bullseye fa-fw"></i>Saving Goals</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-beer fa-fw"></i> Holiday Check</a>
+                            <a href="index.html"><i class="fa fa-beer fa-fw"></i>Holiday Check</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-certificate fa-fw"></i> Cashback</a>
+                            <a href="index.html"><i class="fa fa-certificate fa-fw"></i>Cashback</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-fire fa-fw"></i> Emergency</a>
+                            <a href="index.html"><i class="fa fa-fire fa-fw"></i>Emergency</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-gamepad fa-fw"></i> Own your life</a>
+                            <a href="index.html"><i class="fa fa-gamepad fa-fw"></i>Own your life</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-cube fa-fw"></i> Life Plan</a>
+                            <a href="index.html"><i class="fa fa-cube fa-fw"></i>Life Plan</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-female fa-fw"></i> Family</a>
+                            <a href="index.html"><i class="fa fa-female fa-fw"></i>Family</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-flask fa-fw"></i> Risks</a>
+                            <a href="index.html"><i class="fa fa-flask fa-fw"></i>Risks</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div id="modal-window" class="modal" style="position: absolute; margin-top: 10%;">
-            <div class="row">
-                <div class="col-lg-5"></div>
-                <div class="col-lg-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            A client needs assistance
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg">
-
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="button" class="btn btn-success" id="btnConnect">Connect</button>
-                                    <button type="button" class="btn btn-danger" id="btnCancel">I am busy</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-body -->
+        <div class="modal fade" id="basicModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Assistance Request</h4>
+                    </div>
+                    <div class="modal-body">
+                        A client is requesting assistance. Would you like to take over this clients session?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="btnDeclineSession" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary" id="btnBroadcastMessage">Yes</button>
                     </div>
                 </div>
             </div>

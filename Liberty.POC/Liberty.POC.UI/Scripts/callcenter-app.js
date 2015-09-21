@@ -3,38 +3,19 @@
     var clientCallCenterHub = $.connection.clientCallCenterHub;
 
     clientCallCenterHub.client.ClientMessage = function (id) {
-        //$('#divResponse').text("Message: " + message);
-
-        //var accept = confirm("You have recieved a message from " + name + '. Would you like to respond?');
-
-        //if (accept) {
-        //    $.connection.hub.start().done(function () {
-        //        clientCallCenterHub.server.send('callcenter', 'pong');
-        //        $('#divResponse').text('waiting...');
-        //    });
-        //}
-
-        //ShowModal(function () {
-        //    //Connect was clicked, link through to Process controller
-        //    //Send an accept response to the client
-
-        //        //window.navigate...
-        //    },
-        //function () {
-        //    //Cancel was clicked, do nothing
-        //    //Send a decline response to the client
-        //    $("#modal-window").modal('hide');
-        //});
-
-        var accept = confirm("You have recieved session id " + id + '. Would you like to accept?');
+        $('#basicModal').modal('show');
 
         $.connection.hub.start().done(function () {
-            clientCallCenterHub.server.callCenterMessage(accept);
-        });
+            $('#btnBroadcastMessage').click(function () {
+                clientCallCenterHub.server.callCenterMessage(true);
+                window.location.replace('/CallCenter/Process/' + id);
+            });
 
-        if (accept) {
-            window.location.replace('/CallCenter/Process/' + id);
-        }
+            $('#btnDeclineSession').click(function () {
+                clientCallCenterHub.server.callCenterMessage(false);
+                $('#basicModal').modal('hide');
+            });
+        });
     };
 
     $.connection.hub.start();
@@ -48,4 +29,21 @@ function Finish() {
             alert("Error occured!");
         }
     }, true, false);
+}
+
+function ShowModal(yesCallback, noCallback) {
+    $("#modal-window").modal();
+    $("#modal-window").css({
+        top: ($(window).height() - $(this).height()) / 2,
+        left: ($(window).width() - $(this).width()) / 2
+    });
+
+    $('#btnConnect').click(function () {
+        $("#modal-window").modal('toggle');
+        if (yesCallback) yesCallback();
+    });
+    $('#btnCancel').click(function () {
+        $("#modal-window").modal('toggle');
+        if (noCallback) noCallback();
+    });
 }
