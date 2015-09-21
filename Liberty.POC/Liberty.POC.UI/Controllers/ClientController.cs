@@ -45,16 +45,43 @@ namespace Liberty.POC.UI.Controllers
             if (string.IsNullOrWhiteSpace(clientName))
                 return RedirectToAction("Login");
 
-            var dataModel = CreateDefaultSession(clientName);
+            var userSession = this.GetUserSession(clientName);
+            if(userSession == default(Session))
+                userSession = CreateDefaultSession(clientName);   
 
             var clientDetailsModel = new ClientDetailsModel
             {
-                Id = dataModel.SessionID,
-                Name = dataModel.ClientName,
-                IsCompleted = dataModel.Completed
+                Id = userSession.SessionID,
+                Name = userSession.ClientName,
+                IsCompleted = userSession.Completed,
+                CurrentStep = userSession.CurrentStep,
+                AddressDetails = GetDeserialisedObject<AddressModel>(userSession.Address),
+                PersonalDetails = GetDeserialisedObject<PersonalModel>(userSession.Personal),
+                ContactDetail = GetDeserialisedObject<ContactModel>(userSession.Contact)
             };
 
             return View(clientDetailsModel);
+        }
+
+        private static T GetDeserialisedObject<T>(string serialisedData) where T : new()
+        {
+
+            return !string.IsNullOrEmpty(serialisedData)
+                ? System.Web.Helpers.Json.Decode<T>(serialisedData)
+                : new T();
+        }
+
+        private Session GetUserSession(string clientName)
+        {
+            using(var libertyPocEntities = new LibertyPocEntities())
+            {
+                return libertyPocEntities
+                    .Sessions
+                    .Where(n => n.ClientName == clientName 
+                        && !n.Completed)
+                    .OrderByDescending(n => n.SessionID)
+                    .FirstOrDefault();
+            }
         }
 
         private static Session CreateDefaultSession(string clientName)
