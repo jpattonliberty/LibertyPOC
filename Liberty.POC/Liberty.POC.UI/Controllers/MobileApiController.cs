@@ -27,7 +27,20 @@ namespace Liberty.POC.UI.Controllers
             return clientDetailsModel;
         }
 
-        [System.Web.Mvc.HttpPost]
+        [HttpGet]
+        public ClientDetailsModel Index(string clientName)
+        {
+            var clientDetailsModel = new ClientDetailsModel();
+
+            if (!string.IsNullOrEmpty(clientName))
+            {
+                clientDetailsModel = Helper.GetClientDetails(clientName);
+            }
+
+            return clientDetailsModel;
+        }
+
+        [HttpPost]
         public void Save(ClientDetailsModel clientDetailsModel)
         {
             if (clientDetailsModel == null)
