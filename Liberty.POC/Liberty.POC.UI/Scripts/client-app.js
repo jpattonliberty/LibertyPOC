@@ -30,16 +30,12 @@
 
         $.connection.hub.start().done(function () {
             $('#btnBroadcastMessage').click(function () {
-                SaveClientData(function (data) {
-                    if (data.status === "Success") {
-                        var sessionId = $('#txtSessionId').val();
-                        clientCallCenterHub.server.clientMessage(sessionId);
+                SaveClientData(function () {
+                    var sessionId = $('#txtSessionId').val();
+                    clientCallCenterHub.server.clientMessage(sessionId);
 
-                        $("#basicModal .modal-body").text('Request has been sent. Waiting for a resonse from the first available call center agent...');
-                        $("#basicModal :input").attr("disabled", true);
-                    } else {
-                        alert("An error occured");
-                    }
+                    $("#basicModal .modal-body").text('Request has been sent. Waiting for a resonse from the first available call center agent...');
+                    $("#basicModal :input").attr("disabled", true);
                 }, false, true);
             });
         });
@@ -47,11 +43,7 @@
 });
 
 function Finish() {
-    SaveClientData(function (data) {
-        if (data.status === "Success") {
-            window.location.replace('/Client/Login');
-        } else {
-            alert("Error occured!");
-        }
+    SaveClientData(function () {
+        window.location.replace('/Client/Login');
     }, true, false);
 }

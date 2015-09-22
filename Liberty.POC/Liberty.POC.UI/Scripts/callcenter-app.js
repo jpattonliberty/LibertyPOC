@@ -22,12 +22,8 @@
 });
 
 function Finish() {
-    SaveClientData(function (data) {
-        if (data.status === "Success") {
-            window.location.replace('/CallCenter/Home');
-        } else {
-            alert("Error occured!");
-        }
+    SaveClientData(function () {
+        window.location.replace('/CallCenter/Home');
     }, true, false);
 }
 

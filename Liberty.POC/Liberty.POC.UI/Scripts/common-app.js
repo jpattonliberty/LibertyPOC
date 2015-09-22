@@ -1,12 +1,7 @@
 ﻿function SaveAndContinue(id) {
-    SaveClientData(function (data) {
-        if (data.status === "Success") {
-            $("#" + id).click();
-            fade();
-
-        } else {
-            alert("Error occurs on the Database level!");
-        }
+    SaveClientData(function () {
+        $("#" + id).click();
+        fade();
     }, false, false);
 }
 
@@ -14,7 +9,7 @@ function SaveClientData(successCallback, isComplete, isHelperCall) {
     var payload = GetClientDetails(isComplete, isHelperCall);
 
     $.ajax({
-        url: "/Client/Save",
+        url: "/api/MobileApi/Save",
         type: "POST",
         data: JSON.stringify(payload),
         dataType: "json",
