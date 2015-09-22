@@ -6,6 +6,13 @@ namespace Liberty.POC.UI.Controllers
     public class ClientController : Controller
     {
         [HttpGet]
+        public ActionResult Home(string clientName)
+        {
+            ViewBag.ClientName = clientName;
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
@@ -14,7 +21,7 @@ namespace Liberty.POC.UI.Controllers
         [HttpPost]
         public ActionResult Login(string clientName, string password)
         {
-            return RedirectToAction("Process", new { clientName });
+            return RedirectToAction("Home", new { clientName });
         }
 
         [HttpGet]
@@ -31,6 +38,7 @@ namespace Liberty.POC.UI.Controllers
                 Helper.InsertSession(clientDetailsModel);
             }
 
+            ViewBag.ClientName = clientName;
             return View(clientDetailsModel);
         }
         

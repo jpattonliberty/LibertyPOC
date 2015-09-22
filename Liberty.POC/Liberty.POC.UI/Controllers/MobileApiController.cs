@@ -57,5 +57,23 @@ namespace Liberty.POC.UI.Controllers
         {
             return true;
         }
+
+        [HttpGet]
+        public ClientDetailsModel GetClientSession(string clientName)
+        {
+            var clientDetailsModel = new ClientDetailsModel();
+
+            if (!string.IsNullOrEmpty(clientName))
+            {
+                clientDetailsModel = Helper.GetClientDetails(clientName);
+            }
+
+            if (clientDetailsModel.Id == 0)
+            {
+                clientDetailsModel.Name = clientName;
+                Helper.InsertSession(clientDetailsModel);
+            }
+            return clientDetailsModel;
+        }
     }
 }

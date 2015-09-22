@@ -597,6 +597,7 @@
     <Content Include="Views\Shared\_LayoutLibertyCC.cshtml" />
     <Content Include="Views\CallCenter\Process.cshtml" />
     <Content Include="Views\CallCenter\Home.cshtml" />
+    <Content Include="Views\Client\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
