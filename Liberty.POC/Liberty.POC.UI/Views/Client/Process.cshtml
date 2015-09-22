@@ -39,15 +39,21 @@
                                     <div class="col-lg-12">
                                         <form role="form">
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">=</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtFirstName" placeholder="First Name" value="@Model.PersonalDetails.FirstName">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">=</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-user"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtSurname" placeholder="Surname" value="@Model.PersonalDetails.Surname">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">&</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-tags"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtIdNumber" placeholder="ID No" value="@Model.PersonalDetails.IdNo">
                                             </div>
                                             <div class="form-group">
@@ -69,15 +75,21 @@
                                     <div class="col-lg-12">
                                         <form role="form">
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">#</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-road"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtStreet" placeholder="Street" value="@Model.AddressDetails.PhysicalAddressStreet">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">^</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-home"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtSuburb" placeholder="Suburb" value="@Model.AddressDetails.PhysicalAddressSuburb">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">$</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-building"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtCity" placeholder="City" value="@Model.AddressDetails.PhysicalAddressCity">
                                             </div>
                                             <div class="form-group">
@@ -88,7 +100,9 @@
 
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">0</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-pencil fa-fw"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtCode" placeholder="Area Code" value="@Model.AddressDetails.PhysicalAddressCode">
                                             </div>
                                             <a href="#" class="btn btn-default" onclick="SaveAndContinue('contact-tab');">Save and Continue</a>
@@ -104,23 +118,33 @@
                                     <div class="col-lg-12">
                                         <form role="form">
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">$</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtEmail" placeholder="Email" value="@Model.ContactDetail.EmailAddress">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">0</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-mobile"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtCellNo" placeholder="Cellphone" value="@Model.ContactDetail.Cellphone">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">1</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-phone"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtHomeNo" placeholder="Home" value="@Model.ContactDetail.Home">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">2</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-phone-square"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtWorkNo" placeholder="Work" value="@Model.ContactDetail.Work">
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon">3</span>
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-question-circle"></i>
+                                                </span>
                                                 <input type="text" class="form-control" id="txtAltNo" placeholder="Alternative" value="@Model.ContactDetail.Alternative">
                                             </div>
                                             <a href="#" class="btn btn-default" onclick="Finish();">Finish</a>
@@ -145,7 +169,8 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">Support</div>
-                            <div>Click the link below and we will get someone to assist you&nbsp;<strong>RIGHT AWAY</strong>
+                            <div>
+                                Click the link below and we will get someone to assist you&nbsp;<strong>RIGHT AWAY</strong>
                             </div>
                         </div>
                     </div>
