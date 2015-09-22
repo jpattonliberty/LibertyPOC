@@ -54,7 +54,7 @@
                                             <div class="form-group">
                                                 <label>No of Dependants</label>
                                                 @Html.DropDownListFor(m => m.PersonalDetails.NoOfDependants,
-                                                    UserInterfacehHelper.GetNumberOfDependants(),
+                                                    Helper.GetNumberOfDependants(),
                                                     new {@class = "form-control", id = "ddlNoDependants"})
                                             </div>
                                             <a href="#" class="btn btn-default" onclick="SaveAndContinue('address-tab');">Save and Continue</a>
@@ -84,7 +84,7 @@
                                             <div class="form-group">
                                                 <label>Province</label>
                                                 @Html.DropDownListFor(m => m.AddressDetails.PhysicalAddressProvince,
-                                                    UserInterfacehHelper.GetProvinces(),
+                                                    Helper.GetProvinces(),
                                                     new {@class = "form-control", id = "ddlProvince"})
 
                                             </div>

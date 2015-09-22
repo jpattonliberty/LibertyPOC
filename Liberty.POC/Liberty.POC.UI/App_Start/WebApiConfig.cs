@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace Liberty.POC.UI
 {
@@ -10,13 +7,10 @@ namespace Liberty.POC.UI
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new 
-                {
-                    id = RouteParameter.Optional
-                }
-            );
+                                   name: "apiDefault",
+                                   routeTemplate: "api/{controller}/{action}/{id}",
+                                   defaults: new { id = RouteParameter.Optional }
+                                );
         }
     }
 }
