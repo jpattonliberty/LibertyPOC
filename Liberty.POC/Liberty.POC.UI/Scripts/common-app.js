@@ -114,3 +114,41 @@ function GetContact() {
     }
     return contact;
 }
+
+
+function SetModelText(text) {
+    $("#basicModal .modal-body").text(text);
+}
+
+function ShowModel() {
+    $('#basicModal').modal('show');
+}
+
+function HideModel() {
+    $('#basicModal').modal('hide');
+}
+
+function ShowModelButtons() {
+    $("#basicModal .modal-footer :input").removeClass("hide");
+}
+
+function HideModelButtons() {
+    $("#basicModal .modal-footer :input").addClass("hide");
+}
+
+function DisableModelButtons() {
+    $("#basicModal .modal-footer :input").attr("disabled", true);
+}
+
+function EnableModelButtons() {
+    $("#basicModal .modal-footer :input").attr("disabled", false);
+}
+
+function ToggleOnModelOkButton() {
+    $("#basicModal .modal-footer #btnOk").attr("disabled", false);
+    $("#basicModal .modal-footer #btnOk").removeClass("hide");
+}
+
+function HideModelOkButton() {
+    $("#basicModal .modal-footer #btnOk").addClass("hide");
+}

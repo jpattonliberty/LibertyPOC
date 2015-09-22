@@ -2,8 +2,11 @@
 
     var clientCallCenterHub = $.connection.clientCallCenterHub;
 
-    clientCallCenterHub.client.ClientMessage = function (id) {
-        $('#basicModal').modal('show');
+    clientCallCenterHub.client.ClientMessage = function (id, username) {
+
+        SetModelText(username + " is requesting assistance. Please contact this client on 074 555 6666. If consent is granted, you can take over this clients session by clicking the 'Yes' button below");
+
+        ShowModel();
 
         $.connection.hub.start().done(function () {
             $('#btnBroadcastMessage').click(function () {
@@ -13,7 +16,7 @@
 
             $('#btnDeclineSession').click(function () {
                 clientCallCenterHub.server.callCenterMessage(false);
-                $('#basicModal').modal('hide');
+                HideModel();
             });
         });
     };
@@ -25,21 +28,4 @@ function Finish() {
     SaveClientData(function () {
         window.location.replace('/CallCenter/Home');
     }, true, false);
-}
-
-function ShowModal(yesCallback, noCallback) {
-    $("#modal-window").modal();
-    $("#modal-window").css({
-        top: ($(window).height() - $(this).height()) / 2,
-        left: ($(window).width() - $(this).width()) / 2
-    });
-
-    $('#btnConnect').click(function () {
-        $("#modal-window").modal('toggle');
-        if (yesCallback) yesCallback();
-    });
-    $('#btnCancel').click(function () {
-        $("#modal-window").modal('toggle');
-        if (noCallback) noCallback();
-    });
 }

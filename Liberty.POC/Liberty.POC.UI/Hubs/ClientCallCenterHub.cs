@@ -7,9 +7,9 @@ namespace Liberty.POC.UI.Hubs
     [HubName("clientCallCenterHub")]
     public class ClientCallCenterHub : Hub
     {
-        public void ClientMessage(long id)
+        public void ClientMessage(long id, string username)
         {
-            Clients.All.ClientMessage(id);
+            Clients.All.ClientMessage(id, username);
         }
 
         public void CallCenterMessage(bool accept)
